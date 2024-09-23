@@ -83,12 +83,14 @@ func main() {
 	ginEngine.GET("/players", playerHandler.GetAllPlayers)
 	ginEngine.POST("/players", playerHandler.CreatePlayer)
 	ginEngine.DELETE("/players/:id", playerHandler.DeletePlayer)
-
+	
 	ginEngine.GET("/league/:id", leagueHandler.GetLeague)
+	ginEngine.POST("/leagues", leagueHandler.CreateLeague)
+	ginEngine.DELETE("/leagues/:id", leagueHandler.DeleteLeague)
+
 	ginEngine.POST("/tournaments", tournamentHandler.CreateTournament)
 	ginEngine.DELETE("/tournaments/:id", tournamentHandler.DeleteTournament)
 
-	ginEngine.POST("/leagues", leagueHandler.CreateLeague)
 
 	log.Fatalln(ginEngine.Run(":8001"))
 
